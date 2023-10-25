@@ -1,35 +1,57 @@
 ﻿using System;
-using System.Linq;
+using System.IO;
 using DevExpress.ExpressApp;
-using DevExpress.Data.Filtering;
-using DevExpress.Persistent.Base;
 using DevExpress.ExpressApp.Updating;
-using DevExpress.Xpo;
-using DevExpress.ExpressApp.Xpo;
-using DevExpress.Persistent.BaseImpl;
+using DxSample.Module.BusinessObjects;
 
-namespace WebChart.Module.DatabaseUpdate {
-    // For more typical usage scenarios, be sure to check out https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.Updating.ModuleUpdater
+namespace DxSample.Module.DatabaseUpdate {
     public class Updater : ModuleUpdater {
         public Updater(IObjectSpace objectSpace, Version currentDBVersion) :
             base(objectSpace, currentDBVersion) {
         }
+
         public override void UpdateDatabaseAfterUpdateSchema() {
             base.UpdateDatabaseAfterUpdateSchema();
-            //string name = "MyName";
-            //DomainObject1 theObject = ObjectSpace.FirstOrDefault<DomainObject1>(u => u.Name == name);
-            //if(theObject == null) {
-            //    theObject = ObjectSpace.CreateObject<DomainObject1>();
-            //    theObject.Name = name;
-            //}
-
-			//ObjectSpace.CommitChanges(); //Uncomment this line to persist created object(s).
+            this.CreateCustomers();
+            this.CreateOrders();
         }
-        public override void UpdateDatabaseBeforeUpdateSchema() {
-            base.UpdateDatabaseBeforeUpdateSchema();
-            //if(CurrentDBVersion < new Version("1.1.0.0") && CurrentDBVersion > new Version("0.0.0.0")) {
-            //    RenameColumn("DomainObject1Table", "OldColumnName", "NewColumnName");
-            //}
+
+        private void CreateObjects<TEntity>(string resourceName, Action<TEntity, string[]> updateEntity) {
+            int objectsCnt = this.ObjectSpace.GetObjectsCount(typeof(TEntity), null);
+            if(objectsCnt > 0) return;
+            Stream stream = typeof(TEntity).Assembly.GetManifestResourceStream(resourceName);
+            using(TextReader reader = new StreamReader(stream)) {
+                string line = string.Empty;
+                while(!string.IsNullOrEmpty(line = reader.ReadLine())) {
+                    string[] data = line.Split(';');
+                    TEntity entity = this.ObjectSpace.CreateObject<TEntity>();
+                    updateEntity(entity, data);
+                }
+            }
+            this.ObjectSpace.CommitChanges();
+        }
+
+        private void UpdateCustomer(Customer customer, string[] data) {
+            customer.FirstName = data[0];
+            customer.LastName = data[1];
+            customer.Country = data[2];
+        }
+
+        private void UpdateOrder(Order order, Customer customer, string[] data) {
+            order.Customer = customer;
+            order.OrderDate = DateTime.Parse(data[0]);
+            order.UnitPrice = decimal.Parse(data[1]);
+        }
+
+        private void CreateCustomers() {
+            this.CreateObjects<Customer>("WebChart.Module.Resources.Customers.csv", this.UpdateCustomer);
+        }
+
+        private void CreateOrders() {
+            var customers = this.ObjectSpace.GetObjects<Customer>();
+            Random randomizer = new Random(DateTime.Now.Millisecond);
+            this.CreateObjects<Order>("WebChart.Module.Resources.Orders.csv",
+                (order, data) => this.UpdateOrder(order, customers[randomizer.Next(customers.Count)], data));
         }
     }
 }

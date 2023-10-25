@@ -134,6 +134,13 @@
     <None Include="Images\ReadMe.txt" />
     <None Include="ReadMe.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebChart.Module\WebChart.Module.csproj">
+      <Project>{AFF24D1A-DC4D-495F-A236-EDB55C83BD3D}</Project>
+      <Name>WebChart.Module</Name>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

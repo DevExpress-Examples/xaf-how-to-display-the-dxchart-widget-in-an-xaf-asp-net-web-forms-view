@@ -123,6 +123,7 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
@@ -134,9 +135,6 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Data">
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Data.DataSetExtensions">
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Drawing">
@@ -157,9 +155,7 @@
     <Reference Include="System.Web.Entity">
       <Private>False</Private>
     </Reference>
-    <Reference Include="System.Web.Extensions">
-      <Private>False</Private>
-    </Reference>
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Mobile">
       <Private>False</Private>
     </Reference>
@@ -169,9 +165,7 @@
     <Reference Include="System.XML">
       <Private>False</Private>
     </Reference>
-    <Reference Include="System.Xml.Linq">
-      <Private>False</Private>
-    </Reference>
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
@@ -220,6 +214,18 @@
     <Content Include="Model.Tablet.xafml" />
     <None Include="ReadMe.txt" />
     <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebChart.Module.Web\WebChart.Module.Web.csproj">
+      <Project>{6A3FD597-D86F-49B9-8DB9-84C7AF2E73C7}</Project>
+      <Name>WebChart.Module.Web</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\WebChart.Module\WebChart.Module.csproj">
+      <Project>{AFF24D1A-DC4D-495F-A236-EDB55C83BD3D}</Project>
+      <Name>WebChart.Module</Name>
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

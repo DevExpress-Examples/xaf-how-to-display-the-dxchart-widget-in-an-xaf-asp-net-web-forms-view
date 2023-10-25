@@ -24,7 +24,7 @@ namespace WebChart.Module {
             InitializeComponent();
         }
         public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace objectSpace, Version versionFromDB) {
-            ModuleUpdater updater = new DatabaseUpdate.Updater(objectSpace, versionFromDB);
+            ModuleUpdater updater = new DxSample.Module.DatabaseUpdate.Updater(objectSpace, versionFromDB);
             return new ModuleUpdater[] { updater };
         }
         public override void Setup(XafApplication application) {
