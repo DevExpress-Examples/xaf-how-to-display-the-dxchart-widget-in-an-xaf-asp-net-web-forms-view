@@ -9,6 +9,7 @@
 
 This example illustrates how to show a chart control with a lot of points. The built-in <a href="https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument113302">Charts module</a> draws all points on the same screen at once, which may be inconvenient for an end-user. The built-in Charts module draws all points on the same screen at once, which may be inconvenient for an end-user. To achieve better usability, it is possible to implement real-time zooming and scrolling capabilities.
 The dxChart widget from the DevExtreme library perfectly fits this scenario. This example demonstrates how to utilize this widget in an XAF application.
+![8c96f11b-1ea3-11e6-80bf-00155d62480c](https://github.com/DevExpress-Examples/XAF_how-to-display-the-dxchart-widget-in-an-xaf-view-Web-t381904/assets/14300209/9ee6502a-ead2-4fe0-978f-42fcfaaa88d9)
 
 
 ## Implementation Details
