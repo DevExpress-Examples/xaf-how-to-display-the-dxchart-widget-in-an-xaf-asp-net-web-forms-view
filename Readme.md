@@ -6,9 +6,9 @@
 <!-- default file list -->
 *Files to look at*:
 
-* [OrdersChart.ascx](./CS/DxSample.Web/OrdersChart.ascx) (VB: [OrdersChart.ascx](./VB/DxSample.Web/OrdersChart.ascx))
-* **[OrdersChart.ascx.cs](./CS/DxSample.Web/OrdersChart.ascx.cs) (VB: [OrdersChart.ascx.vb](./VB/DxSample.Web/OrdersChart.ascx.vb))**
-* [orders-chart.js](./CS/DxSample.Web/Scripts/Controls/orders-chart.js) (VB: [orders-chart.js](./VB/DxSample.Web/Scripts/Controls/orders-chart.js))
+* [OrdersChart.ascx](./CS/DxSample.Web/OrdersChart.ascx) 
+* **[OrdersChart.ascx.cs](./CS/DxSample.Web/OrdersChart.ascx.cs)**
+* [orders-chart.js](./CS/DxSample.Web/Scripts/Controls/orders-chart.js)
 <!-- default file list end -->
 # How to display the dxChart widget in an XAF view
 
@@ -31,10 +31,6 @@ window.DxSample.OrdersChart = {
 <p>Using the client-side <a href="https://documentation.devexpress.com/#AspNet/DevExpressWebScriptsASPxClientControl_Inittopic">Init</a> event of the ASPxPanel component, call the <em>createWidgets </em>function passing the first event argument as a parameter. <br><br><em><strong>3.</strong> Register your JavaScript files. <br></em>In code behind for your UserControl (e.g., <em>YourSolutionName.Web/YourUserControlName.ascx.xx</em> file)<em>, </em>handle the <a href="https://msdn.microsoft.com/en-us/library/system.web.ui.control.load%28v=vs.100%29.aspx">UserControl.Load</a> event and call the <a href="https://documentation.devexpress.com/#eXpressAppFramework/DevExpressExpressAppWebWebWindow_RegisterClientScriptIncludetopic">WebWindow.RegisterClientScriptInclude</a> method to include your JavaScript file into the web page.<br><em><br><strong>4.</strong> Load data and pass it to the client side. <br></em>To provide data for client-side widgets, use the approach described in the following article: <a href="https://documentation.devexpress.com/#AspNet/CustomDocument11816">How to: Access Server Data on the Client Side</a>. For this purpose, implement the <a href="https://documentation.devexpress.com/#eXpressAppFramework/clsDevExpressExpressAppEditorsIComplexControltopic">IComplexControl</a> interface in your UserControl class. Within the <a href="https://documentation.devexpress.com/#eXpressAppFramework/DevExpressExpressAppEditorsIComplexControl_Setuptopic">IComplexControl.Setup</a> method, load data from the database, convert it into an array of plain objects (you can use anonymous types in <a href="https://msdn.microsoft.com/en-us/library/bb397696.aspx">C#</a> and <a href="https://msdn.microsoft.com/en-us/library/bb384767.aspx">VB.NET</a> for this purpose), and add it to the <a href="https://documentation.devexpress.com/#AspNet/DevExpressWebASPxPanelBase_JSPropertiestopic">JSProperties</a> dictionary.<br><br><strong>5.</strong> Add your UserControl to the Application Model using the approach demonstrated in the following article: <a href="https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument114160">How to: Show a Custom Data-Bound Control in an XAF View (ASP.NET)</a>.</p>
 
 
-<h3>Description</h3>
 
-Starting with version 16.2, a different approach should be used to disable embedding the required client libraries. Refer to the following article in our online documentation for additional details: <a href="https://documentation.devexpress.com/#AspNet/CustomDocument17153">Embedding Third-Party Libraries</a>.
-
-<br/>
 
 
