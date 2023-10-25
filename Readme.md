@@ -5,7 +5,7 @@
 <!-- default badges end -->
 
 
-# How to display the dxChart widget in an XAF view
+# How to display the dxChart widget in an XAF ASP.NET WebForms view
 
 
 This example illustrates how to show a chart control with a lot of points. The built-in <a href="https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument113302">Charts module draws all points on the same screen at once, which may be inconvenient for an end-user. The built-in Charts module draws all points on the same screen at once, which may be inconvenient for an end-user. To achieve better usability, it is possible to implement real-time zooming and scrolling capabilities.
