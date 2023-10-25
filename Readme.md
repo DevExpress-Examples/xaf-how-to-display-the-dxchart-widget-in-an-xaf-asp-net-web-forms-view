@@ -6,9 +6,9 @@
 <!-- default file list -->
 *Files to look at*:
 
-* [OrdersChart.ascx](./CS/DxSample.Web/OrdersChart.ascx) 
-* **[OrdersChart.ascx.cs](./CS/DxSample.Web/OrdersChart.ascx.cs)**
-* [orders-chart.js](./CS/DxSample.Web/Scripts/Controls/orders-chart.js)
+* [OrdersChart.ascx](CS/WebChart/WebChart.Web/OrdersChart.ascx) 
+* **[OrdersChart.ascx.cs](CS/WebChart/WebChart.Web/OrdersChart.ascx.cs)**
+* [orders-chart.js](CS/WebChart/WebChart.Web/Scripts/Controls/orders-chart.js)
 <!-- default file list end -->
 # How to display the dxChart widget in an XAF view
 
