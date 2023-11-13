@@ -5,7 +5,7 @@
 
 # How to display the dxChart widget in an XAF ASP.NET WebForms view
 
-This example illustrates how to show a chart control with a lot of points. The built-in [Charts module](https://docs.devexpress.com/eXpressAppFramework/113302/analytics/chart-module) draws all points on the same screen at once, and this can be inconvenient for an end user. To improve usability, it is possible to implement real-time zooming and scrolling. The `dxChart` widget from the DevExtreme library fits this scenario perfectly. This example shows how to use this widget in an XAF application.
+This example illustrates how to show a chart control with many points. The built-in [Charts module](https://docs.devexpress.com/eXpressAppFramework/113302/analytics/chart-module) draws all points on the same screen at once, and this can affect readability. To improve usability, you can implement real-time zooming and scrolling, for example, the `dxChart` widget from the DevExtreme library. This example shows how to use this widget in an XAF application.
 
 ![8c96f11b-1ea3-11e6-80bf-00155d62480c](https://github.com/DevExpress-Examples/XAF_how-to-display-the-dxchart-widget-in-an-xaf-view-Web-t381904/assets/14300209/9ee6502a-ead2-4fe0-978f-42fcfaaa88d9)
 
@@ -15,7 +15,7 @@ The approach used in this example is based on the technique of [displaying a cus
 
 1. Register client libraries. For details, refer to the corresponding section of the [How to use DevExtreme Widgets in an XAF application](https://supportcenter.devexpress.com/ticket/details/t380965/how-to-use-devextreme-widgets-in-an-xaf-asp-net-webforms) Knowledge Base article.
 
-2. Create content. In the **YourSolutionName.Web** project, create [a custom ASP.NET user control (*.ascx)](https://learn.microsoft.com/en-us/previous-versions/dotnet/netframework-3.0/26db8ysc(v=vs.85)?redirectedfrom=MSDN) and add [ASPxPanel](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxPanel) to it. This panel will be a container for DevExtreme widgets. It is convenient to keep client-side scripts in a separate file. Add a JavaScript file and declare the `createWidgets` function in it. Implement this function using the approach described in the following topic: [Zooming and Panning](https://js.devexpress.com/Documentation/21_2/Guide/UI_Components/Chart/Zooming_and_Panning/).
+2. Create the content. In the **YourSolutionName.Web** project, create [a custom ASP.NET user control (*.ascx)](https://learn.microsoft.com/en-us/previous-versions/dotnet/netframework-3.0/26db8ysc(v=vs.85)?redirectedfrom=MSDN) and add [ASPxPanel](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxPanel) to it that acts as the container for DevExtreme widgets. It is convenient to keep client-side scripts in a separate file. Add a JavaScript file and declare the `createWidgets` function in it. Implement this function using the approach described in the following topic: [Zooming and Panning](https://js.devexpress.com/Documentation/21_2/Guide/UI_Components/Chart/Zooming_and_Panning/).
 
 	```js
 	window.DxSample = window.DxSample || {};
