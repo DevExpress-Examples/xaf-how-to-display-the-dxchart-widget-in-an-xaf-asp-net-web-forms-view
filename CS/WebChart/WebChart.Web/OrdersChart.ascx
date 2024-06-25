@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="OrdersChart.ascx.cs" Inherits="WebChart.Web.OrdersChart" %>
-<%@ Register Assembly="DevExpress.Web.v23.1, Version=23.1.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+<%@ Register Assembly="DevExpress.Web.v23.1, Version=23.1.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web" TagPrefix="dx" %>
 <dx:ASPxPanel ID="ASPxPanel1" runat="server">
     <ClientSideEvents Init="function(s, e) {
